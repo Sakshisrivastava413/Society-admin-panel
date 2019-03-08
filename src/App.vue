@@ -1,28 +1,55 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-toolbar app>
+          <v-list class="user-info">
+            <v-list-tile avatar>
+              <v-list-tile-avatar>
+                <img src="https://randomuser.me/api/portraits/men/85.jpg">
+              </v-list-tile-avatar>
+  
+              <v-list-tile-content>
+                <v-list-tile-title>John Leider</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list>
+      <v-toolbar-title class="headline text-uppercase">
+        <span class="font-weight-light">Admin Panel</span>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn
+        flat
+        href="#"
+        target="_blank"
+      >
+        <span class="mr-2">Log Out</span>
+      </v-btn>
+    </v-toolbar>
+
+    <v-content>
+      <SideMenu/>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SideMenu from './components/SideMenu'
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
-    HelloWorld
+    SideMenu
+  },
+  data () {
+    return {
+      //
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.theme--light.v-list {
+  background: #f5f5f5
 }
 </style>
+
