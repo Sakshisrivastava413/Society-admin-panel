@@ -5,6 +5,21 @@
         <span class="font-weight-light">Admin Panel</span>
       </v-toolbar-title>
     </v-toolbar>
+
+    <v-layout class="login-card-conatiner" justify-center>
+      <v-flex xs12 sm6 offset>
+        <v-card>
+          <v-card-title primary-title>
+            <p class="login-card-title">Login To Continue</p>
+          </v-card-title>
+
+          <v-card-text>
+            <v-text-field full-width class="input-box" label="Enter Username" outline/>
+            <v-text-field full-width class="input-box" label="Enter Username" outline/>
+          </v-card-text>
+        </v-card>
+      </v-flex>
+    </v-layout>
   </div>
 </template>
 
