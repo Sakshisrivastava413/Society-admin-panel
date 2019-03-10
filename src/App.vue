@@ -26,14 +26,19 @@
     </v-toolbar>
 
     <v-content>
+      <SideMenu/>
     </v-content>
   </v-app>
 </template>
 
 <script>
+import SideMenu from './components/SideMenu'
 
 export default {
   name: 'App',
+  components: {
+    SideMenu
+  },
   data () {
     return {}
   }
