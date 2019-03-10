@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app v-if="isLoggedIn">
     <v-toolbar app>
           <v-list class="user-info">
             <v-list-tile avatar>
@@ -30,6 +30,9 @@
     <router-view />
     </v-content>
   </v-app>
+  <div v-else>
+    <router-view />
+  </div>
 </template>
 
 <script>
@@ -41,7 +44,9 @@ export default {
     SideMenu
   },
   data () {
-    return {}
+    return {
+      isLoggedIn: false
+    }
   }
 }
 </script>
