@@ -27,7 +27,7 @@
 
     <v-content>
       <SideMenu/>
-    <router-view></router-view>
+    <router-view />
     </v-content>
   </v-app>
 </template>
