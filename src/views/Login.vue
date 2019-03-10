@@ -17,14 +17,8 @@
             <v-text-field full-width class="input-box" label="Username" outline/>
             <v-text-field full-width class="input-box" type="password" label="Password" outline/>
           </v-card-text>
-          <!-- <v-flex xs12 sm6> -->
           <div class="text-xs-center">
-            <v-btn
-              color="blue"
-              outline
-              class="button"
-              large
-            >Forget Password</v-btn>
+            <v-btn color="blue" outline class="button" large>Forget Password</v-btn>
             <v-btn
               :loading="loading"
               :disabled="loading"
@@ -34,7 +28,6 @@
               class="button"
             >Log In</v-btn>
           </div>
-          <!-- </v-flex> -->
         </v-card>
       </v-flex>
     </v-layout>
@@ -43,28 +36,25 @@
 
 <script>
 export default {
-  data () {
-      return {
-        loader: null,
-        loading: false,
-        loading2: false,
-        loading3: false,
-        loading4: false
-      }
-    },
-    watch: {
-      loader () {
-        const l = this.loader
-        this[l] = !this[l]
+  data() {
+    return {
+      loader: null,
+      loading: false
+    };
+  },
+  watch: {
+    loader() {
+      const l = this.loader;
+      this[l] = !this[l];
 
-        setTimeout(() => {
-          this.$router.push('/visitor');
-          return this[l] = false;
-        }, 2000)
+      setTimeout(() => {
+        this.$router.push({ path: "/visitor" });
+        return (this[l] = false);
+      }, 2000);
 
-        this.loader = null
-      }
+      this.loader = null;
     }
+  }
 };
 </script>
 
@@ -85,17 +75,14 @@ export default {
 .login-card-conatiner {
   margin-top: 10%;
 }
-
 .card-body {
   box-shadow: 3px 2px 3px 2px #a1a1a1;
 }
-
 .login-card-title {
   font-size: 30px;
   margin-left: 35%;
   font-family: Roboto;
 }
-
 .input-box {
   margin: 10px 90px;
   font-size: 20px;
