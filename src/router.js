@@ -13,6 +13,11 @@ export default new Router({
       component: () => import('./views/Login.vue')
     },
     {
+      path: '/society',
+      name: 'Society',
+      component: () => import('./views/Society.vue')
+    },
+    {
       path: '/visitor',
       name: 'Visitors',
       component: () => import('./views/Visitors.vue')
