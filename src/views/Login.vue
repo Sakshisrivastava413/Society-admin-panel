@@ -14,15 +14,35 @@
           </v-card-title>
 
           <v-card-text>
-            <v-text-field full-width class="input-box" label="Username" outline/>
-            <v-text-field full-width class="input-box" type="password" label="Password" outline/>
+            <v-form>
+              <v-container>
+                <v-layout row wrap>
+                  <v-text-field
+                    v-model="email"
+                    :rules="[rules.required, rules.email]"
+                    label="Username"
+                    class="input-box"
+                  ></v-text-field>
+                    <v-text-field
+                      :append-icon="show ? 'visibility' : 'visibility_off'"
+                      :rules="[rules.required, rules.min]"
+                      :type="show ? 'text' : 'password'"
+                      name="input-10-2"
+                      label="Password"
+                      hint="At least 8 characters"
+                      class="input-group--focused input-box"
+                      @click:append="show = !show"
+                    ></v-text-field>
+                </v-layout>
+              </v-container>
+            </v-form>
           </v-card-text>
           <div class="text-xs-center">
-            <v-btn color="blue" outline class="button" large>Forget Password</v-btn>
+            <v-btn color="primary" outline class="button" large>Forget Password</v-btn>
             <v-btn
               :loading="loading"
               :disabled="loading"
-              color="blue"
+              color="primary"
               @click="loader = 'loading'"
               large
               class="button"
@@ -39,7 +59,19 @@ export default {
   data() {
     return {
       loader: null,
-      loading: false
+      loading: false,
+      email: "",
+      show: false,
+      password: "",
+      rules: {
+        required: value => !!value || "Required.",
+        email: value => {
+          const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          return pattern.test(value) || "Invalid e-mail.";
+        },
+        min: v => v.length >= 8 || "Min 8 characters",
+        emailMatch: () => "The email and password you entered don't match"
+      }
     };
   },
   watch: {
@@ -48,7 +80,7 @@ export default {
       this[l] = !this[l];
 
       setTimeout(() => {
-        this.$router.push({ path: "/visitor" });
+        this.$router.push({ path: "/society" });
         return (this[l] = false);
       }, 2000);
 
