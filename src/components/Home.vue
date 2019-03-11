@@ -70,4 +70,7 @@ export default {
 .item-name {
   font-size: 15px;
 }
+.user-info {
+  background: #F5F5F5
+}
 </style>
