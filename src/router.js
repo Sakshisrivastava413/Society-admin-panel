@@ -1,26 +1,33 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from "vue";
+import Router from "vue-router";
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
-      name: 'Login',
-      component: () => import('./views/Login.vue')
+      path: "/",
+      name: "Login",
+      component: () => import("./views/Login.vue")
     },
     {
-      path: '/society',
-      name: 'Society',
-      component: () => import('./views/Society.vue')
-    },
-    {
-      path: '/visitor',
-      name: 'Visitors',
-      component: () => import('./views/Visitors.vue')
+      path: "/home",
+      name: "Home",
+      component: () => import("./components/Home.vue"),
+      children: [
+        {
+          path: "",
+          name: "Society",
+          component: () => import("./views/Society.vue")
+        },
+        {
+          path: "visitor",
+          name: "Visitors",
+          component: () => import("./views/Visitors.vue")
+        }
+      ]
     }
   ]
-})
+});
