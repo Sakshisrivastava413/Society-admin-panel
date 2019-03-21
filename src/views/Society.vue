@@ -1,16 +1,17 @@
 <template>
-  <v-container>
-    <Home />
-  </v-container>
+  <div>
+    <Header title="Society Management" />
+    <DataTable />
+  </div>
 </template>
 
 <script>
-import Home from "@/components/Home";
-import Header from "@components/Header";
+import DataTable from "@/components/DataTable";
+import Header from "@/components/Header";
 export default {
   components: {
-    Home,
-    // Header
+    DataTable,
+    Header
   }
 };
 </script>
