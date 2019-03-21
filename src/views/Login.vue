@@ -80,7 +80,7 @@ export default {
       this[l] = !this[l];
 
       setTimeout(() => {
-        this.$router.push({ path: "/society" });
+        this.$router.push({ path: "/home" });
         return (this[l] = false);
       }, 2000);
 
