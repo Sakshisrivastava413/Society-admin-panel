@@ -1,11 +1,13 @@
 <template>
-  <h1>hello</h1>
+  <Home />
 </template>
 
 <script>
+import Home from "@/components/Home";
 export default {
-  name: 'Visitors',
-  components: {}
-}
+  components: {
+    Home
+  }
+};
 </script>
 
