@@ -22,21 +22,27 @@
     </v-toolbar>
 
     <v-content>
-      <v-navigation-drawer v-model="drawer" permanent absolute>
-        <v-list class="pt-0" dense>
-          <v-divider></v-divider>
-          <v-list-tile v-for="item in items" :key="item.title" class="item">
-            <v-list-tile-action>
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-tile-action>
+      <div style="display: inline-block">
+        <div style="position: absolute; width: 25%; top: 0px; height: 100%">
+          <v-navigation-drawer v-model="drawer" permanent>
+            <v-list class="pt-0" dense>
+              <v-divider></v-divider>
+              <v-list-tile v-for="item in items" :key="item.title" class="item">
+                <v-list-tile-action>
+                  <v-icon>{{ item.icon }}</v-icon>
+                </v-list-tile-action>
 
-            <v-list-tile-content class="item-name">
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-        </v-list>
-      </v-navigation-drawer>
-      <router-view/>
+                <v-list-tile-content class="item-name">
+                  <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                </v-list-tile-content>
+              </v-list-tile>
+            </v-list>
+          </v-navigation-drawer>
+        </div>
+        <div style="position: absolute; top: 0px; left: 21%">
+          <router-view/>
+        </div>
+      </div>
     </v-content>
   </v-app>
 </template>
@@ -71,6 +77,6 @@ export default {
   font-size: 15px;
 }
 .user-info {
-  background: #F5F5F5
+  background: #f5f5f5;
 }
 </style>
